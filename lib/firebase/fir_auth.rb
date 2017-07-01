@@ -80,7 +80,7 @@ class FIRAuth
     begin
       createUserWithEmail(email, password: password, completion: -> (user, error) do
         if error
-          block.call(error, nil)
+          block.call(nil, error)
         else
           login(credentials, &block)
         end
