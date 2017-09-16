@@ -110,5 +110,9 @@ class FIRAuth
     newCredentials = FIREmailPasswordAuthProvider.credentialWithEmail(email, password: password)
     currentUser.reauthenticateWithCredential(newCredentials, completion: block)
   end
+  
+  def login_anonymously(options={}, &block)
+    signInAnonymouslyWithCompletion(block)
+  end
 
 end
