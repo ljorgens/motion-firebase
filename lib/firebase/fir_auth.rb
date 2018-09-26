@@ -111,6 +111,10 @@ class FIRAuth
     currentUser.reauthenticateWithCredential(newCredentials, completion: block)
   end
   
+  def self.login_anonymously(options={}, &block)
+    self.new.login_anonymously(options={}, &block)
+  end
+  
   def login_anonymously(options={}, &block)
     signInAnonymouslyWithCompletion(block)
   end
