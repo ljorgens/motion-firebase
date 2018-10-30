@@ -33,7 +33,7 @@ class Firebase
   end
 
   def self.configure(options={})
-    FIRApp.configure
+      FIRApp.configure()
   end
 
   def self.database(options={})
