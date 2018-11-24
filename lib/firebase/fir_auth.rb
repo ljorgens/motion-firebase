@@ -107,7 +107,7 @@ class FIRAuth
     raise ":password is required in #{__method__}" unless credentials.key?(:password)
     email = credentials[:email]
     password = credentials[:password]
-    newCredentials = FIREmailPasswordAuthProvider.credentialWithEmail(email, password: password)
+    newCredentials = FIREmailAuthProvider.credentialWithEmail(email, password: password)
     currentUser.reauthenticateWithCredential(newCredentials, completion: block)
   end
   
