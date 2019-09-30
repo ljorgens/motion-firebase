@@ -7,8 +7,8 @@ Motion::Project::App.setup do |app|
 
   # Pods dependencies
   app.pods do
-    pod 'Firebase/Database', '= 5.10'
-    pod 'Firebase/Auth', '= 5.10'
+    pod 'Firebase/Database', '= 6.7'
+    pod 'Firebase/Auth', '= 6.7'
   end
 
   # scans app.files until it finds app/ (the default)

@@ -52,7 +52,7 @@ class FIRDatabaseReference
     if names.length == 0
       childByAutoId
     else
-      childByAppendingPath(names.join('/'))
+      child(names.join('/'))
     end
   end
 

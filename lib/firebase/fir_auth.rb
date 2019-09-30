@@ -34,7 +34,8 @@ class FIRAuth
     ref = self
     permissions = options[:permissions] || ['email']
     fb_login = FBSDKLoginManager.alloc.init
-    fb_login.logInWithReadPermissions(permissions, 
+    fb_login.logInWithPermissions(permissions, 
+      fromViewController:ref,
       handler: -> (facebookResult, facebookError) do
         if facebookError
           block.call(facebookError, nil)
