@@ -23,9 +23,9 @@ Motion::Project::App.setup do |app|
     app.files.insert(insert_point, file)
   end
 
-  app.libs += ['/usr/lib/libicucore.dylib', '/usr/lib/libc++.dylib']
+#   app.libs += ['/usr/lib/libicucore.dylib', '/usr/lib/libc++.dylib']
   app.frameworks += ['CFNetwork', 'Security', 'SystemConfiguration']
   # for twitter or facebook
   app.weak_frameworks += ['Accounts', 'Social']
-  
+
 end
