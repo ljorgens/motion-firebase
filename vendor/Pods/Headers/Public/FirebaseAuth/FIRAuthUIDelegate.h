@@ -1,1 +1,1 @@
-../../../FirebaseAuth/Firebase/Auth/Source/Public/FIRAuthUIDelegate.h
+../../../FirebaseAuth/FirebaseAuth/Sources/Public/FirebaseAuth/FIRAuthUIDelegate.h

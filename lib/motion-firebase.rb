@@ -7,8 +7,9 @@ Motion::Project::App.setup do |app|
 
   # Pods dependencies
   app.pods do
-    pod 'Firebase/Database', '= 6.5'
-    pod 'Firebase/Auth', '= 6.5'
+    pod 'Firebase/Database', '~> 6'
+    pod 'Firebase/Auth', '~> 6'
+    pod 'Firebase/Crashlytics', '~> 6'
     # pod 'Firebase', '= 6.13'
     # pod 'FirebaseDatabase', '= 6.1.2'
     # pod 'FirebaseAuth', '= 6.4'
