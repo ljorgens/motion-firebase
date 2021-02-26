@@ -10,6 +10,9 @@ Motion::Project::App.setup do |app|
     pod 'Firebase/Database', '~> 6'
     pod 'Firebase/Auth', '~> 6'
     pod 'Firebase/Crashlytics', '~> 6'
+    pod 'Firebase/Analytics', '~> 6'
+    #necessary to get firebase analytics to work, otherwise fails with sqlite error
+    pod 'SQLCipher'
     # pod 'Firebase', '= 6.13'
     # pod 'FirebaseDatabase', '= 6.1.2'
     # pod 'FirebaseAuth', '= 6.4'
