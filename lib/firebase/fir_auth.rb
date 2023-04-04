@@ -16,7 +16,7 @@ class FIRAuth
     signInWithCustomToken(token, completion: and_then)
     return self
   end
-  
+
   def login(credentials, &and_then)
     raise ":email is required in #{__method__}" unless credentials.key?(:email)
     raise ":password is required in #{__method__}" unless credentials.key?(:password)
@@ -25,16 +25,16 @@ class FIRAuth
     signInWithEmail(email, password: password, completion: and_then)
     return self
   end
-  
+
   def self.open_facebook_session(options={}, &block)
     self.new.open_facebook_session(options={}, &block)
   end
-  
+
   def open_facebook_session(options={}, &block)
     ref = self
     permissions = options[:permissions] || ['email']
     fb_login = FBSDKLoginManager.alloc.init
-    fb_login.logInWithPermissions(permissions, 
+    fb_login.logInWithPermissions(permissions,
       fromViewController:ref,
       handler: -> (facebookResult, facebookError) do
         if facebookError
@@ -52,27 +52,27 @@ class FIRAuth
   def self.update_user_email(credentials, &block)
     self.new.update_user_email(credentials, &block)
   end
-  
+
   def update_user_email(credentials, &block)
     raise ":email is required in #{__method__}" unless credentials.key?(:email)
     email = credentials[:email]
     currentUser.updateEmail(email, completion: block)
   end
-  
+
   def self.update_password(credentials, &block)
     self.new.update_user(credentials, &block)
   end
-  
+
   def update_password(credentials, &block)
     raise ":new_password is required in #{__method__}" unless credentials.key?(:new_password)
     new_password = credentials[:new_password]
     currentUser.updatePassword(new_password, completion: block)
   end
-  
+
   def self.create_user_and_login(credentials, &block)
     self.new.create_user_and_login(credentials, &block)
   end
-  
+
   def create_user_and_login(credentials, &block)
     raise ":email is required in #{__method__}" unless credentials.key?(:email)
     raise ":password is required in #{__method__}" unless credentials.key?(:password)
@@ -90,19 +90,19 @@ class FIRAuth
       block.call(e, nil)
     end
   end
-  
+
   def self.send_password_reset(credentials, &block)
     self.new.send_password_reset(credentials, &block)
   end
-  
+
   def send_password_reset(email, &block)
     sendPasswordResetWithEmail(email, completion: block)
   end
-  
+
   def check_provider_from_email(email, &block)
     fetchProvidersForEmail(email, completion: block)
   end
-  
+
   def reauthenticate_user(credentials, &block)
     raise ":email is required in #{__method__}" unless credentials.key?(:email)
     raise ":password is required in #{__method__}" unless credentials.key?(:password)
@@ -111,13 +111,20 @@ class FIRAuth
     newCredentials = FIREmailAuthProvider.credentialWithEmail(email, password: password)
     currentUser.reauthenticateWithCredential(newCredentials, completion: block)
   end
-  
+
   def self.login_anonymously(options={}, &block)
     self.new.login_anonymously(options={}, &block)
   end
-  
+
   def login_anonymously(options={}, &block)
     signInAnonymouslyWithCompletion(block)
   end
 
+  def self.delete_user(options={}, &block)
+    self.new.delete_user(options={}, &block)
+  end
+
+  def delete_user(options={}, &block)
+    deleteWithCompletion(block)
+  end
 end
