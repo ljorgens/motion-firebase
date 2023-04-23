@@ -100,7 +100,7 @@ class FIRAuth
   end
 
   def check_provider_from_email(email, &block)
-    fetchProvidersForEmail(email, completion: block)
+    fetchSignInMethodsForEmail(email, completion: block)
   end
 
   def reauthenticate_user(credentials, &block)
