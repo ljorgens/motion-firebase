@@ -17,3 +17,4 @@ nbproject
 *.gem
 /.dat*
 vendor
+build-log
